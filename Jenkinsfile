@@ -1,8 +1,6 @@
 pipeline {
     agent any
 
-    params {
-    }
 
     stages {
     // This is a comment
