@@ -1,7 +1,11 @@
 pipeline {
     agent any
 
+    params {
+    }
+
     stages {
+    // This is a comment
         stage('Build project') {
             agent {
                 docker {
@@ -24,11 +28,27 @@ pipeline {
                     reuseNode true
                 }
              }
+
             steps {
                 sh '''
                     echo 'Test stage'
                     test -d build
                     npm test
+                '''
+            }
+        }
+
+        stage('Deploy') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
+            steps {
+                sh '''
+                    npm install netlify-cli -g
+                    netlify --version
                 '''
             }
         }
