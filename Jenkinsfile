@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        NETLIFY_SITE_ID = 'YOUR NETLIFY SITE ID'
+        NETLIFY_SITE_ID = '58670b9a-635b-4d2d-9402-0ff4304758a0'
         NETLIFY_AUTH_TOKEN = credentials('netlify-token')
     }
 
@@ -157,7 +157,7 @@ pipeline {
             }
 
             environment {
-                CI_ENVIRONMENT_URL = 'YOUR NETLIFY URL'
+                CI_ENVIRONMENT_URL = 'https://singular-syrniki-6399c9.netlify.app/'
             }
 
             steps {
